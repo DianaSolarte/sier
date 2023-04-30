@@ -16,7 +16,7 @@ export class JSONPlaceholderService {
 
   getData(): Observable<any> {
     const url = "https://jsonplaceholder.typicode.com/posts"
-    return this.http.get<any>()
+    return this.http.get<any>(url)
 
   }
 
