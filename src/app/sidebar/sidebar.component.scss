@@ -1,38 +1,113 @@
-.banner {
-  width: 100%;
-}
-
+/* Estilos de la barra de navegación */
 .navbar {
-    background-color: transparent;
+  background-color: #002041;
 }
 
-a {
-  text-decoration: none;
-  background-image: transparent;
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size .3s;
-}
-
-a:hover, a:focus {
-  background-size: 100% 2px;
-}
-
-.banner {
-  min-height: 300px;
-  max-height: 600px;
-  background-color: #f5f5f5;
+.navbar-brand {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.banner img {
-  width: 100%;
-  height: auto;
+.navbar-nav {
+  --bs-scroll-height: 100px;
+  margin: 0 auto;
 }
-.navbar {
-  background-image: url('../../assets/imagen/banner.jpg'); /* ruta a su imagen de fondo */
-  background-size: cover; /* Ajusta la imagen al tamaño del navbar */
-  background-position: center center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.nav-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  color: #7b0c4d;
+  text-decoration: none;
+  transition: background-size .3s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-size: 100% 2px;
+}
+
+/* Estilos de la sección del banner */
+.banner img {
+  height: auto;
+  width: 100%;
+}
+
+/* Estilos de la sección del video */
+.video-container {
+  height: 0;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  position: relative;
+}
+
+.video-container video {
+  display: block;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Estilos del texto superpuesto */
+.text-container {
+  background-color: rgba(14, 68, 115, 0.395);
+  color: #f2f2f2;
+  left: 50%;
+  max-width: 600px;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.text-container h1 {
+  color: #18a2d9;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-container h2 {
+  color: #14b5d9;
+  font-size: 2rem;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
+/* Estilos del enlace */
+a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-size .3s;
+}
+
+a:hover,
+a:focus {
+  background-size: 100% 2px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .text-container h1 {
+    font-size: 2rem;
+  }
+
+  .text-container h2 {
+    font-size: 1.5rem;
+  }
 }

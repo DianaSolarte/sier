@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { JSONPlaceholderService } from './services/jsonplaceholder.service'
+import { JSONPlaceholderService } from './services/jsonplaceholder.service';
+import { TableComponent } from './table/table.component';
+
 
 @Component({
   selector: 'app-root',
@@ -8,16 +10,19 @@ import { JSONPlaceholderService } from './services/jsonplaceholder.service'
 })
 export class AppComponent {
   title = 'red';
-  data : Array<any>
+  data: any[] = [];
+  constructor(private JSONPlaceholder: JSONPlaceholderService){}
 
-  constructor(private JSONPlaceholder: JSONPlaceholderService){
-    this.data = new Array<any>();
+  ngOnInit() {
+    this.getDataFromAPI();
   }
 
   getDataFromAPI(){
     this.JSONPlaceholder.getData().subscribe((data) => {
-    console.log(data)
-    this.data = data
-   })
+      console.log(data)
+      this.data = data;
+   });
+   page_size: number = 10
+   page_number: number = 1
 }
 }

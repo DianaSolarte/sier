@@ -1,0 +1,78 @@
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+table {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Estilos para la tabla */
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #184A8C;
+  color: white;
+  font-weight: bold;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+/* Estilos para los botones de editar y eliminar */
+.btn-editar,
+.btn-eliminar {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-editar:hover,
+.btn-eliminar:hover {
+  transform: scale(1.2);
+}
+
+.btn-editar i,
+.btn-eliminar i {
+  transition: transform 0.2s;
+}
+
+.btn-editar i {
+  color: #18A2D9;
+}
+
+.btn-eliminar i {
+  color: #F03434;
+}
+
+/* Estilos para el título */
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #184A8C;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #F2F2F2;
+  }
+
+
+tr:hover {
+  background-color: #E6F1F6  ;
+}
+

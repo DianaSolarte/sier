@@ -7,14 +7,23 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TableComponent } from './table/table.component';
 import { FooterComponent } from './footer/footer.component';
+import { NewsComponent } from './news/news.component';
+import { BootstrapIconsModule } from 'ng-bootstrap-icons';
+import { PaginatePipe } from './pipes/paginate.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HomeComponent,
     SidebarComponent,
     TableComponent,
-    FooterComponent
+    FooterComponent,
+    NewsComponent,
+    PaginatePipe,
+    NgxPaginationModule
   ],
   imports: [
     BrowserModule,
