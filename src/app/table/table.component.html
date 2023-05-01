@@ -3,13 +3,15 @@
   <table class="table table-hover table-bordered table-striped">
     <thead>
       <tr>
-        <th *ngFor="let column of tableColumns | paginate:pagesize:pagenumber">{{ column.name }}</th>
+        <th scope="col" *ngFor="let column of tableColumns">{{ column.name }}</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
+        <th scope="col">Publicar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data">
+      <tr *ngFor="let row of data | paginate: page_size : page_number; let i = index">
+
         <td *ngFor="let column of tableColumns">{{ row[column.property] }}</td>
         <td>
           <a (click)="editRow = row" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
@@ -17,8 +19,24 @@
         <td>
           <a (click)="deleteRow(row)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
         </td>
+        <td>
+          <a (click)="publishRow(row)" class="btn btn-primary"><i class="bi bi-upload"></i></a>
+        </td>
       </tr>
     </tbody>
   </table>
   <hr>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div>
+
+<div class="confirm-dialog">
+  <div class="confirm-dialog-box">
+    <h2>¿Estás seguro?</h2>
+    <p>Esta acción no se puede deshacer.</p>
+    <div class="confirm-dialog-buttons">
+      <button id="confirm-yes">Sí</button>
+      <button id="confirm-no">No</button>
+    </div>
+  </div>
 </div>

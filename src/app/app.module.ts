@@ -13,6 +13,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+
 @NgModule({
 
   declarations: [
@@ -22,13 +23,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TableComponent,
     FooterComponent,
     NewsComponent,
-    PaginatePipe,
-    NgxPaginationModule
+    PaginatePipe
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
