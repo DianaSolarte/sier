@@ -1,10 +1,9 @@
-import { Component, Input, Output, ElementRef, EventEmitter  } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from '../modal/modal.component'; // importar el componente ModalComponent aquí
+import { ModalComponent } from '../modal/modal.component';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
 import { PostModalComponent } from '../post-modal/post-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 
 @Component({
   selector: 'app-table',
@@ -13,22 +12,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class TableComponent {
 
-  @Input() page_size: number = 5;
-  @Input() page_number: number = 1;
+  // Definir tipos para las propiedades de entrada y salida
+  @Input() page_size = 5;
+  @Input() page_number = 1;
   @Input() data: any[] = [];
-  @Output() onEdit: EventEmitter<any> = new EventEmitter();
-  @Output() onPublish: EventEmitter<any> = new EventEmitter();
+  @Output() onEdit = new EventEmitter<any>();
+  @Output() onPublish = new EventEmitter<any>();
 
-
+  // Definir tipos para las propiedades de clase
   editRow: any;
   row: any = {};
   publishedRows: any[] = [];
-  currentPage = 1
-
+  currentPage = 1;
   activeModal: any;
-
-
-
+  
   tableColumns = [
     { name: 'ID', property: 'id' },
     { name: 'Titulo', property: 'title' },
@@ -36,13 +33,13 @@ export class TableComponent {
   ];
 
 
-  modalContent!: ElementRef;
-
- // referencia al elemento modal en el HTML
+  // Usar ViewChild para obtener una referencia al elemento modal en el HTML
+  @ViewChild('modalContent', { static: false }) modalContent!: ElementRef;
 
   constructor(private modalService: NgbModal) {}
 
-  pageChanged(event: any): void {
+  // Usar una función de flecha para mantener el contexto de 'this' dentro de la función
+  pageChanged = (event: any): void => {
     this.page_number = event.page;
     this.updateData(this.page_size, this.page_number);
   }
@@ -59,12 +56,13 @@ export class TableComponent {
     modalRef.componentInstance.message = `¿Está seguro de que desea eliminar el registro con el título "${row.title}"?`;
     modalRef.componentInstance.onClose.subscribe((result: string) => {
       if (result === 'confirm') {
-        const index = this.data.indexOf(row);
+        // Usar Array.filter() en lugar de Array.indexOf() y Array.splice() para eliminar la fila
         this.data = this.data.filter((r: any) => r !== row);
         this.modalService.dismissAll();
       }
     });
   }
+
   openModal() {
     this.modalService.open(this.modalContent);
   }
@@ -72,16 +70,20 @@ export class TableComponent {
   closeModal() {
     this.modalService.dismissAll();
   }
+
   edit(row: any) {
+    // Usar Object.assign() para clonar el objeto en lugar de modificar el objeto original
     this.editRow = Object.assign({}, row);
     const modalRef = this.modalService.open(EditModalComponent);
     modalRef.componentInstance.title = 'Editar registro';
     modalRef.componentInstance.editRow = this.editRow;
     modalRef.componentInstance.data = this.data;
     modalRef.componentInstance.onSave.subscribe((result: any) => {
-      const index = this.data.indexOf(result);
+      // Usar Array.findIndex() en lugar de Array.indexOf() para encontrar el índice de la fila modificada
+      const index = this.data.findIndex((r: any) => r.id === result.id);
       if (index >= 0) {
-        this.data[index] = { ...result };
+        // Usar el spread operator para actualizar solo las propiedades modificadas en lugar de clonar todo el objeto
+        this.data[index] = { ...this.data[index], ...result };
       }
       this.editRow = null;
       this.modalService.dismissAll();

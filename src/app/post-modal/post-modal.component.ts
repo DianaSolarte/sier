@@ -8,17 +8,22 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PostModalComponent {
 
+  // IPropiedad de entrada para recibir el mensaje a mostrar
   @Input() message= '';
+
+  // Propiedad de salida para emitir un evento cuando el usuario confirma
   @Output() confirm = new EventEmitter<void>();
 
+  // Constructor con inyección de dependencia NgbActiveModal
+  constructor(public activeModal: NgbActiveModal) {}
 
-constructor(public activeModal: NgbActiveModal) {}
-onConfirm() {
-  this.confirm.emit();
-}
+  // Método para emitir el evento de confirmación
+  onConfirm() {
+    this.confirm.emit();
+  }
 
-public closeModal() {
-  this.activeModal.close();
+  // Método para cerrar el modal.
+  public closeModal() {
+    this.activeModal.close();
+  }
 }
-}
-
