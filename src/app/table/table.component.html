@@ -20,7 +20,7 @@
           <a (click)="openDeleteModal(row)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
         </td>
         <td>
-          <a (click)="publishRow(row)" class="btn btn-primary"><i class="bi bi-upload"></i></a>
+          <a (click)="publishModal(row)" class="btn btn-primary"><i class="bi bi-upload"></i></a>
         </td>
       </tr>
       <tr *ngIf="editRow === row">
@@ -37,7 +37,7 @@
   <hr>
   <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 
-  <div class="news-section" *ngIf="publishedRows.length > 0">
+  <div class="news-section" *ngIf="publishModal.length > 0">
     <h2 class="text-center mb-5 animate__fadeInRight">Noticias publicadas</h2>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let row of publishedRows">
@@ -50,5 +50,4 @@
       </div>
     </div>
   </div>
-
-
+<hr>

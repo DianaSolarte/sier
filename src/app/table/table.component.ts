@@ -2,6 +2,8 @@ import { Component, Input, Output, ElementRef, EventEmitter  } from '@angular/co
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component'; // importar el componente ModalComponent aquí
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
+import { PostModalComponent } from '../post-modal/post-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @Component({
@@ -15,11 +17,15 @@ export class TableComponent {
   @Input() page_number: number = 1;
   @Input() data: any[] = [];
   @Output() onEdit: EventEmitter<any> = new EventEmitter();
+  @Output() onPublish: EventEmitter<any> = new EventEmitter();
+
 
   editRow: any;
   row: any = {};
   publishedRows: any[] = [];
-;
+  currentPage = 1
+
+  activeModal: any;
 
 
 
@@ -98,12 +104,37 @@ saveEdit() {
     this.editRow = null;
   }
 
-  publishRow(row: any) {
+
+
+  publishModal(row: any) {
     this.publishedRows.push(row);
+    const modalpub = this.modalService.open(PostModalComponent);
+    modalpub.componentInstance.title = 'Publicar Noticia';
+    modalpub.componentInstance.message = `Se ha publicado una nueva noticia con exito"${row.title}"?`;
+    modalpub.componentInstance.onClose.subscribe((result: string) => {
+      if (result === 'confirm') {
+        // Agrega la fila al arreglo de noticias publicadas
+        this.publishedRows.push(row);
+        this.data = this.data.filter((r: any) => r !== row);
+        // Cierra el modal
+        this.modalService.dismissAll();
+        // Muestra un mensaje de éxito con alert()
+        alert('¡Noticia publicada con éxito!');
+      }
+    });
+  }
+
+  openModalpub() {
+    const modalRef = this.modalService.open(PostModalComponent);
+    modalRef.componentInstance.name = 'Usuario';
+  }
+  closeModalpub() {
+    this.activeModal.close('Modal cerrado');
   }
 
 
 }
+
 
 
 

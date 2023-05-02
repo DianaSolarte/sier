@@ -167,7 +167,7 @@
     "symbol-observable" "4.0.0"
     "yargs" "17.6.2"
 
-"@angular/common@^15.0.0", "@angular/common@^15.2.0", "@angular/common@>=13.0.0", "@angular/common@15.2.8":
+"@angular/common@^15.0.0", "@angular/common@^15.2.0", "@angular/common@>=13.0.0", "@angular/common@>=14.0.0-0", "@angular/common@15.2.8":
   "integrity" "sha512-yLDQihiRcVl38HrWMPbqgzOaSUw85AQH5BsGdjbS6BpoBQj3EXOpccCMFsuxOKxPG4toatgawNqrEnK0Jpv9Mw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-15.2.8.tgz"
   "version" "15.2.8"
@@ -197,7 +197,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^15.0.0", "@angular/core@^15.2.8", "@angular/core@>=13.0.0", "@angular/core@15.2.8":
+"@angular/core@^15.0.0", "@angular/core@^15.2.8", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0-0", "@angular/core@15.2.8":
   "integrity" "sha512-NDs+g4uM4EhyCvluf8a0YBCFXsDAEfCMHOD5cS00Bl+liTQ7JwtmepkWXMyjLB92irC9JaR79kdy4BoIKOh8WA=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-15.2.8.tgz"
   "version" "15.2.8"
@@ -227,7 +227,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/platform-browser@^15.2.8", "@angular/platform-browser@15.2.8":
+"@angular/platform-browser@^15.2.8", "@angular/platform-browser@>=14.0.0-0", "@angular/platform-browser@15.2.8":
   "integrity" "sha512-8sKFUld54inj0FnQ1ydhFxnDgsbbf43W9FALye/5uEtLgwwE/ZvkNYMaQ7hq1JPuQRMDj3gJkFqaLeFjplpHDA=="
   "resolved" "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-15.2.8.tgz"
   "version" "15.2.8"
@@ -4584,6 +4584,13 @@
   "integrity" "sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw=="
   "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.3.tgz"
   "version" "6.0.3"
+  dependencies:
+    "tslib" "^2.3.0"
+
+"ngx-toastr@^16.1.1":
+  "integrity" "sha512-obUGE5RYC/62/AYiZvZcVw/mMBSI0KGJH7VhdiQQ2jsysp05m8nndI1shGhm6X1t/6/z/qj7NFpvSuUyhdweNg=="
+  "resolved" "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-16.1.1.tgz"
+  "version" "16.1.1"
   dependencies:
     "tslib" "^2.3.0"
 
