@@ -1,6 +1,7 @@
-import { Component, Input,ViewChild, ElementRef,   } from '@angular/core';
+import { Component, Input, Output, ElementRef, EventEmitter  } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component'; // importar el componente ModalComponent aquí
+import { EditModalComponent } from '../edit-modal/edit-modal.component';
 
 
 @Component({
@@ -13,9 +14,12 @@ export class TableComponent {
   @Input() page_size: number = 5;
   @Input() page_number: number = 1;
   @Input() data: any[] = [];
+  @Output() onEdit: EventEmitter<any> = new EventEmitter();
 
-  editRow: any = null;
-  publishRow: any = null;
+  editRow: any;
+  row: any = {};
+  publishedRows: any[] = [];
+;
 
 
 
@@ -43,11 +47,6 @@ export class TableComponent {
     this.data = this.data.slice(startIndex, endIndex);
   }
 
-  deleteRow(row: any) {
-    this.openDeleteModal(row);
-
-  }
-
   openDeleteModal(row: any) {
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.title = 'Eliminar registro';
@@ -60,8 +59,6 @@ export class TableComponent {
       }
     });
   }
-
-
   openModal() {
     this.modalService.open(this.modalContent);
   }
@@ -69,7 +66,45 @@ export class TableComponent {
   closeModal() {
     this.modalService.dismissAll();
   }
+  edit(row: any) {
+    this.editRow = Object.assign({}, row);
+    const modalRef = this.modalService.open(EditModalComponent);
+    modalRef.componentInstance.title = 'Editar registro';
+    modalRef.componentInstance.editRow = this.editRow;
+    modalRef.componentInstance.data = this.data;
+    modalRef.componentInstance.onSave.subscribe((result: any) => {
+      const index = this.data.indexOf(result);
+      if (index >= 0) {
+        this.data[index] = { ...result };
+      }
+      this.editRow = null;
+      this.modalService.dismissAll();
+      // Update the table data after the save event is emitted
+      this.updateData(this.page_size, this.page_number);
+    });
+    modalRef.componentInstance.onCancel.subscribe(() => {
+      this.editRow = null;
+      this.modalService.dismissAll();
+    });
+  }
+
+saveEdit() {
+  this.data[this.data.indexOf(this.editRow)] = Object.assign({}, this.editRow);
+  this.editRow = null;
+}
+
+
+  cancelEdit() {
+    this.editRow = null;
+  }
+
+  publishRow(row: any) {
+    this.publishedRows.push(row);
+  }
+
 
 }
+
+
 
 

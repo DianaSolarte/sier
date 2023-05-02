@@ -14,7 +14,7 @@
 
         <td *ngFor="let column of tableColumns">{{ row[column.property] }}</td>
         <td>
-          <a (click)="editRow = row" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+          <a (click)="edit(row)" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
         </td>
         <td>
           <a (click)="openDeleteModal(row)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
@@ -22,18 +22,33 @@
         <td>
           <a (click)="publishRow(row)" class="btn btn-primary"><i class="bi bi-upload"></i></a>
         </td>
-
+      </tr>
+      <tr *ngIf="editRow === row">
+        <td><input type="text" [(ngModel)]="editRow.id" /></td>
+        <td><input type="text" [(ngModel)]="editRow.title" /></td>
+        <td><input type="text" [(ngModel)]="editRow.body" /></td>
+        <td>
+          <a (click)="saveEdit()" class="btn btn-success"><i class="bi bi-check"></i></a>
+          <a (click)="cancelEdit()" class="btn btn-secondary"><i class="bi bi-x"></i></a>
+        </td>
       </tr>
     </tbody>
   </table>
   <hr>
   <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 
+  <div class="news-section" *ngIf="publishedRows.length > 0">
+    <h2 class="text-center mb-5 animate__fadeInRight">Noticias publicadas</h2>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let row of publishedRows">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ row.title }}</h5>
+            <p class="card-text">{{ row.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-  <ng-template #content let-modal>
-    <app-modal [title]="'My Modal Title'" (onClose)="closeModal()">
-      <p>This is the content of my modal.</p>
-    </app-modal>
-  </ng-template>
-</div>

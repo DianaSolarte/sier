@@ -122,3 +122,36 @@ tr:hover {
 .confirm-dialog-buttons button:hover {
   background-color: #13549a;
 }
+
+.news-section {
+  border: 1px solid #ccc; /* Agregar borde */
+  padding: 20px; /* Agregar espacio interno */
+}
+
+.card {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ddd; /* Borde gris claro */
+  border-radius: 5px; /* Esquinas redondeadas */
+  box-shadow: 0px 0px 5px #ddd; /* Sombra suave */
+  transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de levantamiento en hover */
+  box-shadow: 0px 5px 10px #ddd; /* Sombra más oscura */
+}
+
+.card-title {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Espacio inferior */
+}
+
+.card-text {
+  font-size: 1rem; /* Tamaño de fuente */
+  color: #555; /* Color de texto gris oscuro */
+}
+.card {
+  width: 300px; /* establece el ancho fijo */
+  height: 300px; /* establece la altura fija */
+}

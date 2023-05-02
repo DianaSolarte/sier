@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">Editar Noticia</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="saveChanges()">
+    <div class="form-group">
+      <label for="title">Titulo:</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="myRow.title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" [(ngModel)]="myRow.description" name="description"></textarea>
+    </div>
+  </form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+  <button type="button" class="btn btn-primary" (click)="saveChanges()">Actualizar</button>
+</div>

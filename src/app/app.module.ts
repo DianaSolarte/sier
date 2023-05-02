@@ -13,7 +13,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from 'angular-datatables';
 import { ModalComponent } from './modal/modal.component';
-
+import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ModalComponent } from './modal/modal.component';
     FooterComponent,
     NewsComponent,
     PaginatePipe,
-    ModalComponent
+    ModalComponent,
+    EditModalComponent
 
   ],
   imports: [
@@ -34,7 +36,8 @@ import { ModalComponent } from './modal/modal.component';
     HttpClientModule,
     AppRoutingModule,
     NgxPaginationModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
