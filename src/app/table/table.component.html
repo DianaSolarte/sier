@@ -1,5 +1,5 @@
-<div class="container animate__fadeInRight">
-  <h2 class="text-center mb-5">Noticias para la empresa Sistemas Inteligentes en Red</h2>
+<div class="container">
+  <h2 class="text-center mb-5 animate__fadeInRight">Noticias para la empresa Sistemas Inteligentes en Red</h2>
   <table class="table table-hover table-bordered table-striped">
     <thead>
       <tr>
@@ -17,26 +17,23 @@
           <a (click)="editRow = row" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
         </td>
         <td>
-          <a (click)="deleteRow(row)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+          <a (click)="openDeleteModal(row)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
         </td>
         <td>
           <a (click)="publishRow(row)" class="btn btn-primary"><i class="bi bi-upload"></i></a>
         </td>
+
       </tr>
     </tbody>
   </table>
   <hr>
   <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 
-</div>
 
-<div class="confirm-dialog">
-  <div class="confirm-dialog-box">
-    <h2>¿Estás seguro?</h2>
-    <p>Esta acción no se puede deshacer.</p>
-    <div class="confirm-dialog-buttons">
-      <button id="confirm-yes">Sí</button>
-      <button id="confirm-no">No</button>
-    </div>
-  </div>
+
+  <ng-template #content let-modal>
+    <app-modal [title]="'My Modal Title'" (onClose)="closeModal()">
+      <p>This is the content of my modal.</p>
+    </app-modal>
+  </ng-template>
 </div>

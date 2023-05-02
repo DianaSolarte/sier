@@ -11,6 +11,8 @@ import { NewsComponent } from './news/news.component';
 import { BootstrapIconsModule } from 'ng-bootstrap-icons';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DataTablesModule } from 'angular-datatables';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -23,14 +25,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TableComponent,
     FooterComponent,
     NewsComponent,
-    PaginatePipe
+    PaginatePipe,
+    ModalComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
