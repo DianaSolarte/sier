@@ -55,7 +55,48 @@ La interfaz se mostrará de esta manera: En la cual se podra visualizar el Foote
 
 ### Guía de instalación
 ---
+### Requisitos del sistema
+
+Para poder compilar y ejecutar el proyecto, es necesario contar con los siguientes requisitos:
+
+ - Node.js v14.17.0 o superior
+ - Angular CLI v12.0.0 o superior
+ - Gestor de paquetes npm o yarn
+
+### Dependencias del proyecto
+
+El proyecto hace uso de las siguientes dependencias externas:
+
+- Bootstrap v5.0.0.
+- ngx-bootstrap v7.1.1.
+- rxjs v6.6.7.
+- json-server v0.16.3
+
+### Instalación
+
+  1. Clonar el repositorio:
+
+    git clone https://github.com/tuusuario/tuproyecto.git.
+    
+  2. Instalar las dependencias del proyecto:
+
+    cd red
+    npm install
+    
+  3. Iniciar la API REST JSONPlaceholder:
+
+    npm run json-server
+    
+  4. Iniciar la aplicación de Angular:
+
+    ng serve
+
+  5. Acceder a la aplicación en el navegador en la siguiente URL: http://localhost:4200/
+ 
+
  ### Arquitectura de carpetas y módulos:
+ <p align="center"><img src="arquitecturaApp.png"/></p>
+ 
 
  La arquitectura de la aplicación de Angular contiene las siguientes aplicaciones y servicios:
 
@@ -78,47 +119,62 @@ La interfaz se mostrará de esta manera: En la cual se podra visualizar el Foote
   - Assets: Esta carpeta contiene el componente ModalEditComponent, que se utiliza para mostrar el modal de edición. Este componente se encarga de obtener      los  datos del post seleccionado y mostrarlos en un formulario para que el usuario pueda editarlos. Una vez que el usuario envía el formulario, el componente    emite un  evento con los datos actualizados del post para que el componente padre (app.component) los procese.
 
 
-La guía de instalación debe contener de manera específica:
-- Los requisitos del sistema operativo para la compilación (versiones específicas de librerías, software de gestión de paquetes y dependencias, SDKs y compiladores, etc.).
-- Las dependencias propias del proyecto, tanto externas como internas (orden de compilación de sub-módulos, configuración de ubicación de librerías dinámicas, etc.).
-- Pasos específicos para la compilación del código fuente y ejecución de tests unitarios en caso de que el proyecto disponga de ellos.
 
-### Dependencias
-Descripción de los recursos externos que generan una dependencia para la reutilización de la herramienta digital (librerías, frameworks, acceso a bases de datos y licencias de cada recurso). Es una buena práctica describir las últimas versiones en las que ha sido probada la herramienta digital. 
-
-    Puedes usar este estilo de letra diferenciar los comandos de instalación.
-
-## Cómo contribuir
----
-Esta sección explica a desarrolladores cuáles son las maneras habituales de enviar una solicitud de adhesión de nuevo código (“pull requests”), cómo declarar fallos en la herramienta y qué guías de estilo se deben usar al escribir más líneas de código. También puedes hacer un listado de puntos que se pueden mejorar de tu código para crear ideas de mejora.
 
 ## Código de conducta 
 ---
-El código de conducta establece las normas sociales, reglas y responsabilidades que los individuos y organizaciones deben seguir al interactuar de alguna manera con la herramienta digital o su comunidad. Es una buena práctica para crear un ambiente de respeto e inclusión en las contribuciones al proyecto. 
+# Código de conducta del proyecto
 
-La plataforma Github premia y ayuda a los repositorios dispongan de este archivo. Al crear CODE_OF_CONDUCT.md puedes empezar desde una plantilla sugerida por ellos. Puedes leer más sobre cómo crear un archivo de Código de Conducta (aquí)[https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/]
+## Nuestro compromiso
+
+Nos comprometemos a crear una comunidad acogedora e inclusiva. Nosotros valoramos la participación de todas las personas, independientemente de su nivel de experiencia, género, identidad y expresión de género, orientación sexual, discapacidad, apariencia personal, tamaño corporal, raza, edad, religión o nacionalidad.
+
+## Nuestros estándares
+
+Ejemplos de comportamiento que contribuyen a crear un ambiente positivo para nuestra comunidad:
+
+- Ser amable y respetuoso con los demás.
+- Aceptar críticas constructivas y feedback de forma abierta y amistosa.
+- Demostrar empatía hacia otros miembros de la comunidad.
+- Ser claro y conciso al comunicarse.
+- Asumir buena fe por parte de otros miembros de la comunidad.
+- Centrarse en lo que es mejor para la comunidad.
+
+Ejemplos de comportamiento inaceptable incluyen:
+
+- Uso de lenguaje o imágenes ofensivas, discriminatorias o insultantes.
+- Ataques personales o comentarios denigrantes dirigidos a otros miembros de la comunidad.
+- Acoso, amenazas o comportamiento intimidatorio hacia otros miembros de la comunidad.
+- Publicación de información privada de otras personas, como direcciones o números de teléfono, sin su consentimiento explícito.
+- Cualquier otra conducta que sea considerada inapropiada en un entorno profesional.
+
+## Nuestras responsabilidades
+
+Los mantenedores del proyecto son responsables de aclarar los estándares de comportamiento aceptable y se espera que tomen medidas correctivas apropiadas y justas en respuesta a cualquier comportamiento inaceptable.
+
+Los mantenedores del proyecto tienen el derecho y la responsabilidad de eliminar, editar o rechazar comentarios, commits, código, ediciones de wiki, preguntas y otras contribuciones que no estén alineadas con este Código de Conducta, o de prohibir temporal o permanentemente cualquier contribuyente por otros comportamientos que consideren inapropiados, amenazantes, ofensivos o dañinos.
+
+## Alcance
+
+Este Código de Conducta se aplica tanto dentro de los espacios del proyecto como en los espacios públicos cuando una persona representa al proyecto o su comunidad. Ejemplos de representación del proyecto incluyen el uso de la dirección de correo electrónico del proyecto, la publicación a través de una cuenta oficial en las redes sociales, o la actuación como representante designado en cualquier evento en línea o fuera de línea. La representación del proyecto puede ser definida y aclarada por los mantenedores del proyecto.
+
+## Aplicación
+
+Los casos de comportamiento abusivo, acosador o inaceptable pueden ser reportados contactando a los mantenedores del proyecto en el correo electrónico [inserta aquí el correo electrónico de contacto]. Todas las quejas serán revisadas y analizadas y darán lugar a una respuesta que se considere necesaria y apropiada a las circunstancias. Los mantenedores del proyecto están obligados a mantener la confidencialidad en cuanto a la persona que reporta un incidente. 
+
+## Atribución
+
+Este Código de Conducta está adaptado del Contributor Covenant, versión 1.4, disponible en https://www.contributor-covenant
+
 
 ## Autor/es
 ---
-Nombra a el/los autor/es original/es. Consulta con ellos antes de publicar un email o un nombre personal. Una manera muy común es dirigirlos a sus cuentas de redes sociales.
+Autor: Diana Marcela Solarte Moreno Correo electornico: dianasolartemm@gmail.com
 
-## Información adicional
----
-Esta es la sección que permite agregar más información de contexto al proyecto como alguna web de relevancia, proyectos similares o que hayan usado la misma tecnología.
 
-## Licencia 
----
-
-La licencia especifica los permisos y las condiciones de uso que el desarrollador otorga a otros desarrolladores que usen y/o modifiquen la herramienta digital.
-
-Incluye en esta sección una nota con el tipo de licencia otorgado a esta herramienta digital. El texto de la licencia debe estar incluído en un archivo *LICENSE.md* o *LICENSE.txt* en la raíz del repositorio.
-
-Si desconoces qué tipos de licencias existen y cuál es la mejor para cada caso, te recomendamos visitar la página https://choosealicense.com/.
-
-Si la herramienta que estás publicando con la iniciativa Código para el Desarrollo ha sido financiada por el BID, te invitamos a revisar la [licencia oficial del banco para publicar software](https://github.com/EL-BID/Plantilla-de-repositorio/blob/master/LICENSE.md)
 
 ## Limitación de responsabilidades
-Disclaimer: Esta sección es solo para herramientas financiadas por el BID.
+
 
 El BID no será responsable, bajo circunstancia alguna, de daño ni indemnización, moral o patrimonial; directo o indirecto; accesorio o especial; o por vía de consecuencia, previsto o imprevisto, que pudiese surgir:
 
